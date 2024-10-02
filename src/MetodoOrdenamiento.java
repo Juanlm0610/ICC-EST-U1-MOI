@@ -2,21 +2,29 @@ import java.util.Arrays;
 
 public class MetodoOrdenamiento {
 
-    public int[] SortByInsercion(int[] arreglo) {
+    public int[] SortByInsercion(int[] arreglo, boolean logs) {
         for (int i = 1; i < arreglo.length; i++) {
             int key = arreglo[i];
             int j = i - 1;
 
-            System.out.println("\ti=" + i + " j=" + j + " [i]=" + arreglo[i] + " [j]=" + arreglo[j]);
+            if (logs) {
+                System.out.println("\ti=" + i + " j=" + j + " [i]=" + arreglo[i] + " [j]=" + arreglo[j]);
+            }
 
             while (j >= 0 && arreglo[j] > key) {
-                System.out.println("\t\tCompramos " + key + " con " + arreglo[j]);
+                if (logs) {
+                    System.out.println("\t\tCompramos " + key + " con " + arreglo[j]);
+                }
                 arreglo[j + 1] = arreglo[j];
                 j--;
-                System.out.println("\t\t--------" + Arrays.toString(arreglo));
+                if (logs) {
+                    System.out.println("\t\t--------" + Arrays.toString(arreglo));
+                }
             }
-            arreglo[j + 1] = key; 
-            System.out.println("\t--------" + Arrays.toString(arreglo));
+            arreglo[j + 1] = key;
+            if (logs) {
+                System.out.println("\t--------" + Arrays.toString(arreglo));
+            }
         }
         return arreglo;
 
